@@ -9,7 +9,6 @@ const formatValue = (value:string) : string =>{
 
 const result = formatValue("hello")
 
-console.log(result)
 
 
 
@@ -23,7 +22,7 @@ const getLength = (value:string) : number =>{
 
 const length = getLength("typescript")
 
-console.log(length)
+
 
 
 
@@ -46,7 +45,7 @@ const person1 = new Person('John Doe', 30);
 const person2 = new Person('Alice', 25);
 
     
-console.log(person1.getDetails())
+
 
 
 type Item = {
@@ -67,7 +66,7 @@ const filterByRating = (items: Item[]):Item[]=>{
 const book = filterByRating(books) 
 
 
-console.log(book)
+
 
 
 type Users = {
@@ -89,7 +88,7 @@ const filterActiveUsers = (users:Users[]) : Users[] =>{
 
 const user = filterActiveUsers(users)
 
-console.log(user)
+
 
 
 interface Book{
@@ -113,7 +112,7 @@ const myBook: Book = {
 
 const bookDetails = printBookDetails(myBook)
 
-console.log(bookDetails)
+
 
 
 
@@ -128,7 +127,7 @@ const array2 = [3, 4, 5, 6, 7];
 const uniqueValue = getUniqueValues(array1,array2)
 
 
-console.log(uniqueValue)
+
 
 
 type Products = {
@@ -151,4 +150,3 @@ const calculateTotalPrice = (product: Products[]): Number=>{
 
 const totalProductPrice = calculateTotalPrice(products)
 
-console.log(totalProductPrice)
