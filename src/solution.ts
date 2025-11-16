@@ -164,10 +164,6 @@ const array2 = [3, 4, 5, 6, 7];
 
 const uniqueValue = getUniqueValues(array1,array2)
 
-console.log(uniqueValue)
-
-
-
 
 
 type Products = {
