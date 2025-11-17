@@ -47,7 +47,6 @@ const person2 = new Person('Alice', 25);
     
 
 
-
 type Item = {
     title: string;
     rating:number;
@@ -180,9 +179,17 @@ const products : Products[] = [
 ];
 
 const calculateTotalPrice = (product: Products[]): Number=>{
-    const totalPrice = product.reduce((sum,total)=> (total.price * total.quantity + sum)  , 0)
-    return totalPrice
+    return product.reduce((total,product)=> {
+        const totalPrice = product.price * product.quantity;
+
+        const totalPriceWithDiscount = product?.discount ? totalPrice - (totalPrice * product.discount) / 100 : totalPrice
+        
+        return total + totalPriceWithDiscount
+
+    } , 0)
 }
 
 const totalProductPrice = calculateTotalPrice(products)
+
+
 
