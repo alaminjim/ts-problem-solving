@@ -115,46 +115,52 @@ const bookDetails = printBookDetails(myBook)
 
 
 
-const getUniqueValues = (array1: (string | number)[], array2: (string | number)[]) => {
-    const unique: (string | number)[] = [];
+const getUniqueValues = <T extends string | number>(
+  array1: T[],
+  array2: T[]
+): T[] => {
+  const unique: T[] = [];
+  let uniqueIndex = 0;
 
-    for (let i = 0; i < array1.length; i++) {
-        const value = array1[i];
 
-        if (value !== undefined) {
-            let exists = false;
+  for (let i = 0; i < array1.length; i++) {
+    const value = array1[i];
+    if (value === undefined) continue; 
 
-            for (let j = 0; j < unique.length; j++) {
-                if (unique[j] === value) {
-                    exists = true;
-                }
-            }
+    let exists = false;
 
-            if (!exists) {
-                unique.push(value);
-            }
-        }
+    for (let j = 0; j < uniqueIndex; j++) {
+      if (unique[j] === value) {
+        exists = true;
+      }
     }
 
-    for (let i = 0; i < array2.length; i++) {
-        const value = array2[i];
+    if (!exists) {
+      unique[uniqueIndex] = value;
+      uniqueIndex++;
+    }
+  }
 
-        if (value !== undefined) {
-            let exists = false;
 
-            for (let j = 0; j < unique.length; j++) {
-                if (unique[j] === value) {
-                    exists = true;
-                }
-            }
+  for (let i = 0; i < array2.length; i++) {
+    const value = array2[i];
+    if (value === undefined) continue; 
 
-            if (!exists) {
-                unique.push(value);
-            }
-        }
+    let exists = false;
+
+    for (let j = 0; j < uniqueIndex; j++) {
+      if (unique[j] === value) {
+        exists = true;
+      }
     }
 
-    return unique;
+    if (!exists) {
+      unique[uniqueIndex] = value;
+      uniqueIndex++;
+    }
+  }
+
+  return unique;
 };
 
 
@@ -162,6 +168,7 @@ const array1 = [1, 2, 3, 4, 5];
 const array2 = [3, 4, 5, 6, 7];
 
 const uniqueValue = getUniqueValues(array1,array2)
+
 
 
 
